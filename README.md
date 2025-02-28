@@ -33,8 +33,8 @@ python
 df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(('http://', 'https://')) else x)
 
 - Exemplo:
-   Entrada: "exemplo.com.br" -> Saída:"https://Exemplo.com.br".
-   Entrada: "http://outro.com" -> Saída: "https://outro.com' (mantido)
+  - Entrada: "exemplo.com.br" -> Saída:"https://Exemplo.com.br".
+  - Entrada: "http://outro.com" -> Saída: "https://outro.com' (mantido)
 
 4. Consulta Básica Aos Sites:
    - Função: consultar_site.
@@ -44,37 +44,38 @@ df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(
    - Erro: Se falahar (ex.: site fora do ar), retorna "erro na consulta"
 
    5. Extração de Telefones:
-      - Evolução: Após a versão inicial do texto generico, ajustei o codigo para buscar os telefones.
-      - Padrão: r'(?:(?:\+?55\s?)?(?:\(?\d{2}\)?)?\s?\d{4,5}[-.\s]?\d{4})'.
-      - Formatos reconhecidos:
+    - Evolução: Após a versão inicial do texto generico, ajustei o codigo para buscar os telefones.
+    - Padrão: r'(?:(?:\+?55\s?)?(?:\(?\d{2}\)?)?\s?\d{4,5}[-.\s]?\d{4})'.
+    - Formatos reconhecidos:
         -(11) 99999-9999
         - +5511987654321
         - 11 98765-4321
-      - Saida: Lista de telefones únicos, juntados com virgula no resultado final.
-    6. Saída em csv
-       - Arquivo: resultado_telefones.csv.
-       - Colunas: "site" (URL formatada) e "Telefone" (telefones encontrados ou " Nenhum telefone encontrado").
-       - Implementação: Usa pandas.DataFrame.to_csv
-    7. Controle de Requisição?
-       - Paisa: time.sleep(2) entre consultas para evitar bloqueios por parte dos sites.
-     Estrutura da planilha de Entrada:
+    - Saida: Lista de telefones únicos, juntados com virgula no resultado final.
+   6. Saída em csv
+    - Arquivo: resultado_telefones.csv.
+    - Colunas: "site" (URL formatada) e "Telefone" (telefones encontrados ou " Nenhum telefone encontrado").
+    - Implementação: Usa pandas.DataFrame.to_csv
+   7. Controle de Requisição?
+    - Paisa: time.sleep(2) entre consultas para evitar bloqueios por parte dos sites.
+   
+   - Estrutura da planilha de Entrada:
       - coluna site:
          - A coluna Site precisa estar exatamente escrita com o " S " maiusculo para que a leitura do cdigo seja realizada. caso não esteja nesse padrão o programa retornara um erro e dizer que nao foi encontrada a coluna site;
         
 
  - Fluxo do Código:
-  - Usuário faz upload da planilha via interface.
-  - Código verifica o formato e carrega os dados.
-  - URLs são padronizadas com "https://".
-  - Cada site é consultado, telefones são extraídos.
-  - Resultados são salvos em CSV.
+   - Usuário faz upload da planilha via interface.
+   - Código verifica o formato e carrega os dados.
+   - URLs são padronizadas com "https://".
+   - Cada site é consultado, telefones são extraídos.
+   - Resultados são salvos em CSV.
 
  - Resultado Final:
-  - Arquivo: resultados_telefones.csv.
-  - Exemplo:
-    -  Site,Telefone
-  https://exemplo.com.br,"(11) 99999-9999"
-  https://exemplo.com,"Nenhum telefone encontrado"
+   - Arquivo: resultados_telefones.csv.
+   - Exemplo:
+     -  Site,Telefone
+       - https://exemplo.com.br,"(11) 99999-9999"
+       - https://exemplo.com,"Nenhum telefone encontrado"
 
 
 
