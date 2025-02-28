@@ -47,7 +47,7 @@ df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(
   - Evolução: Após a versão inicial do texto generico, ajustei o codigo para buscar os telefones.
   - Padrão: r'(?:(?:\+?55\s?)?(?:\(?\d{2}\)?)?\s?\d{4,5}[-.\s]?\d{4})'.
   - Formatos reconhecidos:
-      -(11) 99999-9999
+      - (11) 99999-9999
       - +5511987654321
       - 11 98765-4321
   - Saida: Lista de telefones únicos, juntados com virgula no resultado final.
