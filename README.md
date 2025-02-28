@@ -12,12 +12,12 @@ Ler uma planilha (CSV, XLSX ou ODS) com uma coluna chamada "Site", adicionar "ht
 Funcionalidades Implementadas:
  1. Suporte a Múltiplos Formatos de Planilha:
  - Bibliotecas:
-  - pandas pra CSV e XLSX.
-  - openpyxl pra XLSX.
-  - pyexcel_ods3 pra ODS (instalado via !pip install pyexcel-ods3 no Colab).
+   - pandas pra CSV e XLSX.
+   - openpyxl pra XLSX.
+   - pyexcel_ods3 pra ODS (instalado via !pip install pyexcel-ods3 no Colab).
  - Implementação: Função carregar_planilha detecta o formato pelo nome do arquivo e carrega os dados em um DataFrame.
  - Exemplo:
-   - Arquivo sites.csv, sites.xlsx ou sites.ods com coluna "Site".
+    - Arquivo sites.csv, sites.xlsx ou sites.ods com coluna "Site".
     
  2. Interface de Upload no Google Colab:
   - Biblioteca: google.colab.files.
@@ -33,14 +33,14 @@ python
 df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(('http://', 'https://')) else x)
 
 - Exemplo:
-  - Entrada: "exemplo.com.br" -> Saída:"https://Exemplo.com.br".
-  - Entrada: "http://outro.com" -> Saída: "https://outro.com' (mantido)
+   Entrada: "exemplo.com.br" -> Saída:"https://Exemplo.com.br".
+   Entrada: "http://outro.com" -> Saída: "https://outro.com' (mantido)
 
 4. Consulta Básica Aos Sites:
    - Função: consultar_site.
    - Implementação:
-    - usa requests.get com cabeçalho User_Agent para simular um navegador.
-    - Extrai o texto da página com BeautifulSoup e retorna os primeiros 100 caracteres como exemplo
+     - usa requests.get com cabeçalho User_Agent para simular um navegador.
+     - Extrai o texto da página com BeautifulSoup e retorna os primeiros 100 caracteres como exemplo
    - Erro: Se falahar (ex.: site fora do ar), retorna "erro na consulta"
 
    5. Extração de Telefones:
@@ -59,7 +59,7 @@ df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(
        - Paisa: time.sleep(2) entre consultas para evitar bloqueios por parte dos sites.
      Estrutura da planilha de Entrada:
       - coluna site:
-        - A coluna Site precisa estar exatamente escrita com o " S " maiusculo para que a leitura do cdigo seja realizada. caso não esteja nesse padrão o programa retornara um erro e dizer que nao foi encontrada a coluna site;
+         - A coluna Site precisa estar exatamente escrita com o " S " maiusculo para que a leitura do cdigo seja realizada. caso não esteja nesse padrão o programa retornara um erro e dizer que nao foi encontrada a coluna site;
         
 
  - Fluxo do Código:
@@ -72,9 +72,9 @@ df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(
  - Resultado Final:
   - Arquivo: resultados_telefones.csv.
   - Exemplo:
- +    Site,Telefone
-   +   https://exemplo.com.br,"(11) 99999-9999"
-   +   https://exemplo.com,"Nenhum telefone encontrado"
+    -  Site,Telefone
+  https://exemplo.com.br,"(11) 99999-9999"
+  https://exemplo.com,"Nenhum telefone encontrado"
 
 
 
