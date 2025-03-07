@@ -93,7 +93,7 @@ df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(
 Futuras implementações e possiveis melhorias no codigo:
 
   - Implementar a leitura de outras formas de pesquisa de telefone como o Google Maps
-  - Baixar o arquivo em varios formatos.
+  - Baixar o arquivo em varios formatos. - feito
   - interface grafica para facilitar o usuario utilizar o programa
   - leitura mais rapida e/ou esconder o processo pra não ficar tão extenso no terminal 
   
