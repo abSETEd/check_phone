@@ -87,13 +87,19 @@ df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(
  - Evolução 3: Padronização de URLs com "https://".
  - Evolução 4: Extração de telefones com regex em vez de texto genérico**
 
+# Codigo teste 
+- checkwgmaps_tester.ipynb -
+Este arquivo refere-se a implemnentação de pesquisa com o google maps. 
+ainda não foi solucionado a parte que o codigo pega o numero pela pesquina no google maps, a consulta é feita mas não vem resultados.
+Estudando um pouco mais com videos e outros programas parecidos,
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Futuras implementações e possiveis melhorias no codigo:
 
   - Implementar a leitura de outras formas de pesquisa de telefone como o Google Maps
-  - Baixar o arquivo em varios formatos.
+  - Baixar o arquivo em varios formatos. - feito
   - interface grafica para facilitar o usuario utilizar o programa
   - leitura mais rapida e/ou esconder o processo pra não ficar tão extenso no terminal 
   
