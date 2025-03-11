@@ -1,8 +1,18 @@
 # check_phone
-Esse projeto ele sera especifico para uma revalidação de planilhas. visando ajudar a automatizar processos de pesquisas 
-este inclusive é o repositorio oficial com o codigo que, ate agora, foi o que funcionou. 
+Esse projeto é especifico para uma revalidação de planilhas com consulta de Sites validos e busca de telefones. visando ajudar a automatizar processos de pesquisas e geração de leads.
+O codigo ate o momento está sendo escrito no Google Colab, Caso precise Rodar em outro ambiente como VS CODE etc, precisara refazer algumas partes do codigo. 
 
-nas primeira versão o codigo faz as seguintes instruções
+by:Adriely SD
+#
+**Resumo das Etapas de Implementação:**
+ - Início: Suporte básico a CSV com upload manual e texto genérico.
+ - Evolução 1: Adicionado suporte a XLSX e ODS.
+ - Evolução 2: Interface de upload com files.upload().
+ - Evolução 3: Padronização de URLs com "https://".
+ - Evolução 4: Extração de telefones com regex em vez de texto genérico**
+ - 
+#
+Nas primeira versão o codigo faz as seguintes instruções
 
 Versão Base: Até o ponto em que rodou bem e padronizou os sites com "https://".
 
@@ -18,6 +28,16 @@ Funcionalidades Implementadas:
  - Implementação: Função carregar_planilha detecta o formato pelo nome do arquivo e carrega os dados em um DataFrame.
  - Exemplo:
     - Arquivo sites.csv, sites.xlsx ou sites.ods com coluna "Site".
+      
+![image](https://github.com/user-attachments/assets/37d3dee5-3efc-4af1-9655-de39e1a2af7b)
+
+Na segunda versão do codigo, foi alterado a seguinte função abaixo:
+ 1. copiar a planilha original para uma nova mantendo as mesmas colunas
+ 2. adiciona a coluna 'telefones' entre a coluna 'RazaoSocial' e 'Logradouro'
+ 3. *ATENÇÃO* A PLANILHA DEVE ESTAR SEMPRE NO MESMO FORMATO DE COLUNAS.
+    - EX: Site |	Validação de Site |	qtd CNPJs	| qtd UF MVX	| CNPJ |	CNPJRaiz |	RazaoSocial	| Numero de telefone |	Anotações	| Status	| Numeros Duplicados	| Logradouro | Complemento	| Bairro	| Cidade	| Uf	| Cep	| CapitalSocial	| Cnae	| CodigoPredio	| Predio	| NaturezaJuridica | DescNaturezaJuridica
+      SEMPRE DEVEM ESTAR COM ESSAS COLUNAS, CASO CONTRARIO O CODIGO GERA UM AVISO DO TIPO "Coluna "Site" não foi encontrada"
+      
     
  2. Interface de Upload no Google Colab:
   - Biblioteca: google.colab.files.
@@ -56,14 +76,13 @@ df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(
   - Colunas: "site" (URL formatada) e "Telefone" (telefones encontrados ou " Nenhum telefone encontrado").
   - Implementação: Usa pandas.DataFrame.to_csv
 
- 7. Controle de Requisição?
-  - Paisa: time.sleep(2) entre consultas para evitar bloqueios por parte dos sites.
+ 7. Controle de Requisição:
+  - Paisa: time.sleep(2) da um time de 2 sec entre consultas para evitar bloqueios por parte dos sites.
    
  8. Estrutura da planilha de Entrada:
    - coluna site:
        - A coluna Site precisa estar exatamente escrita com o " S " maiusculo para que a leitura do cdigo seja realizada. caso não esteja nesse padrão o programa retornara um erro e dizer que nao foi encontrada a coluna site;
         
-
  - Fluxo do Código:
    - Usuário faz upload da planilha via interface.
    - Código verifica o formato e carrega os dados.
@@ -79,20 +98,11 @@ df['Site'] = df['Site'].apply(lambda x: f"https://{x}" if not str(x).startswith(
        - https://exemplo.com,"Nenhum telefone encontrado"
 
 
-
-**Resumo das Etapas de Implementação:
- - Início: Suporte básico a CSV com upload manual e texto genérico.
- - Evolução 1: Adicionado suporte a XLSX e ODS.
- - Evolução 2: Interface de upload com files.upload().
- - Evolução 3: Padronização de URLs com "https://".
- - Evolução 4: Extração de telefones com regex em vez de texto genérico**
-
-
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Futuras implementações e possiveis melhorias no codigo:
 
-  - Implementar a leitura de outras formas de pesquisa de telefone como o Google Maps
+  - Implementar a leitura de outras formas de pesquisa de telefone como o Google Maps 
   - Baixar o arquivo em varios formatos.
   - interface grafica para facilitar o usuario utilizar o programa
   - leitura mais rapida e/ou esconder o processo pra não ficar tão extenso no terminal 
