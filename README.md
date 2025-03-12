@@ -29,15 +29,14 @@ Funcionalidades Implementadas:
  - Exemplo:
     - Arquivo sites.csv, sites.xlsx ou sites.ods com coluna "Site".
       
-![image](https://github.com/user-attachments/assets/37d3dee5-3efc-4af1-9655-de39e1a2af7b)
-
 Na segunda versão do codigo, foi alterado a seguinte função abaixo:
  1. copiar a planilha original para uma nova mantendo as mesmas colunas
  2. adiciona a coluna 'telefones' entre a coluna 'RazaoSocial' e 'Logradouro'
  3. *ATENÇÃO* A PLANILHA DEVE ESTAR SEMPRE NO MESMO FORMATO DE COLUNAS.
     - EX: Site |	Validação de Site |	qtd CNPJs	| qtd UF MVX	| CNPJ |	CNPJRaiz |	RazaoSocial	| Numero de telefone |	Anotações	| Status	| Numeros Duplicados	| Logradouro | Complemento	| Bairro	| Cidade	| Uf	| Cep	| CapitalSocial	| Cnae	| CodigoPredio	| Predio	| NaturezaJuridica | DescNaturezaJuridica
-      SEMPRE DEVEM ESTAR COM ESSAS COLUNAS, CASO CONTRARIO O CODIGO GERA UM AVISO DO TIPO "Coluna "Site" não foi encontrada"
-      
+     - SEMPRE DEVEM ESTAR COM ESSAS COLUNAS, CASO CONTRARIO O CODIGO GERA UM AVISO DO TIPO "Coluna "Site" não foi encontrada"
+
+     ![image](https://github.com/user-attachments/assets/37d3dee5-3efc-4af1-9655-de39e1a2af7b)
     
  2. Interface de Upload no Google Colab:
   - Biblioteca: google.colab.files.
