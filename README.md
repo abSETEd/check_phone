@@ -2,7 +2,7 @@
 Esse projeto é especifico para uma revalidação de planilhas com consulta de Sites validos e busca de telefones. visando ajudar a automatizar processos de pesquisas e geração de leads.
 O codigo ate o momento está sendo escrito no Google Colab, Caso precise Rodar em outro ambiente como VS CODE etc, precisara refazer algumas partes do codigo. 
 
-by:Adriely SD
+by:Adriely BSD
 #
 **Resumo das Etapas de Implementação:**
  - Início: Suporte básico a CSV com upload manual e texto genérico.
